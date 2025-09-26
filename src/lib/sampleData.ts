@@ -130,7 +130,7 @@ export const sampleAccountManagers: AccountManager[] = [
 export const executiveMetrics: MetricCard[] = [
   {
     title: "Net Revenue Retention",
-    value: "112%", 
+    value: "104%", 
     change: 8,
     trend: "up",
     target: 115,

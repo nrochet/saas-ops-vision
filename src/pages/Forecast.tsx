@@ -217,18 +217,15 @@ export default function Forecast() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="mb-4">
-            <p className="text-lg font-bold text-red-500">TEST LEGEND VISIBILITY</p>
-          </div>
-          {/* Manual Legend */}
-          <div className="flex items-center justify-center gap-6 mb-4 p-2 bg-muted/20 rounded">
+          {/* Legend */}
+          <div className="flex items-center justify-center gap-6 mb-6 p-3 bg-card border rounded-lg">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 border-t-2 border-dashed" style={{ borderColor: 'hsl(var(--primary))' }}></div>
-              <span className="text-sm font-medium">Planned</span>
+              <div className="w-8 h-0.5 border-t-2 border-dashed border-primary"></div>
+              <span className="text-sm font-medium text-foreground">Planned</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1" style={{ backgroundColor: 'hsl(var(--success))' }}></div>
-              <span className="text-sm font-medium">Actual</span>
+              <div className="w-8 h-0.5 bg-success rounded"></div>
+              <span className="text-sm font-medium text-foreground">Actual</span>
             </div>
           </div>
           <ResponsiveContainer width="100%" height={300}>

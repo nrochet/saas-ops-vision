@@ -217,9 +217,6 @@ export default function Forecast() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="mb-4">
-            <p className="text-lg font-bold text-red-500">TEST LEGEND VISIBILITY</p>
-          </div>
           {/* Manual Legend */}
           <div className="flex items-center justify-center gap-6 mb-4 p-2 bg-muted/20 rounded">
             <div className="flex items-center gap-2">

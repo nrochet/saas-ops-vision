@@ -6,7 +6,7 @@ export const sampleAccounts: Account[] = [
     name: "TechCorp Solutions",
     logo: "TC",
     arr: 450000,
-    renewalDate: "Renew:202x-12-15",
+    renewalDate: "2025-12-15",
     riskLevel: "safe",
     nrr: 115,
     productsActive: 3,
@@ -87,6 +87,10 @@ export const sampleAccounts: Account[] = [
     segment: "smb"
   }
 ];
+
+export const extractDateFromRenewal = (renewalDate: string): string => {
+  return renewalDate.startsWith('Renew: ') ? renewalDate.substring(7) : renewalDate;
+};
 
 export const sampleAccountManagers: AccountManager[] = [
   {

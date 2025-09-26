@@ -217,6 +217,17 @@ export default function Forecast() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {/* Manual Legend */}
+          <div className="flex items-center justify-center gap-6 mb-4">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-0.5 border-t-2 border-dashed border-primary"></div>
+              <span className="text-sm text-muted-foreground">Planned</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-0.5 bg-success"></div>
+              <span className="text-sm text-muted-foreground">Actual</span>
+            </div>
+          </div>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={accuracyTrend} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
               <XAxis 
@@ -241,6 +252,7 @@ export default function Forecast() {
                   borderRadius: '6px'
                 }}
               />
+              <Legend />
               <Legend />
               <Line 
                 type="monotone" 

@@ -88,9 +88,6 @@ export const sampleAccounts: Account[] = [
   }
 ];
 
-export const extractDateFromRenewal = (renewalDate: string): string => {
-  return renewalDate.startsWith('Renew: ') ? renewalDate.substring(7) : renewalDate;
-};
 
 export const sampleAccountManagers: AccountManager[] = [
   {

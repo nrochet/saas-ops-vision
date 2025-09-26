@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 import { Package, TrendingUp, Users, PlayCircle } from "lucide-react";
+import { ProductBreadthChart } from "@/components/charts/ProductBreadthChart";
+import { productBreadthData } from "@/lib/sampleData";
 
 const productPenetration = [
   { product: "Analytics Pro", contracted: 145, active: 132, penetration: 91 },
@@ -51,61 +53,66 @@ export default function ProductAdoption() {
       </div>
 
       {viewMode === 'manager' ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Product Penetration */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Package className="h-5 w-5" />
-                Product Penetration
-              </CardTitle>
-              <CardDescription>
-                Percentage of contracted customers actively using each product
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {productPenetration.map((product) => (
-                <div key={product.product} className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="font-medium">{product.product}</span>
-                    <span className="text-muted-foreground">
-                      {product.active}/{product.contracted} ({product.penetration}%)
-                    </span>
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Product Penetration */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Package className="h-5 w-5" />
+                  Product Penetration
+                </CardTitle>
+                <CardDescription>
+                  Percentage of contracted customers actively using each product
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {productPenetration.map((product) => (
+                  <div key={product.product} className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="font-medium">{product.product}</span>
+                      <span className="text-muted-foreground">
+                        {product.active}/{product.contracted} ({product.penetration}%)
+                      </span>
+                    </div>
+                    <Progress value={product.penetration} className="h-2" />
                   </div>
-                  <Progress value={product.penetration} className="h-2" />
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+                ))}
+              </CardContent>
+            </Card>
 
-          {/* Adoption Pipeline */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5" />
-                Adoption Pipeline
-              </CardTitle>
-              <CardDescription>
-                Customer journey from contract to active usage
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={adoptionPipeline} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-                  <XAxis dataKey="stage" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                  <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: 'hsl(var(--card))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '6px'
-                    }}
-                  />
-                  <Bar dataKey="count" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
+            {/* Adoption Pipeline */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <TrendingUp className="h-5 w-5" />
+                  Adoption Pipeline
+                </CardTitle>
+                <CardDescription>
+                  Customer journey from contract to active usage
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={250}>
+                  <BarChart data={adoptionPipeline} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+                    <XAxis dataKey="stage" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                    <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
+                    <Tooltip 
+                      contentStyle={{ 
+                        backgroundColor: 'hsl(var(--card))',
+                        border: '1px solid hsl(var(--border))',
+                        borderRadius: '6px'
+                      }}
+                    />
+                    <Bar dataKey="count" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                  </BarChart>
+                </ResponsiveContainer>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Product Breadth Histogram */}
+          <ProductBreadthChart data={productBreadthData} />
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

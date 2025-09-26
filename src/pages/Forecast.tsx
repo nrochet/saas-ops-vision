@@ -253,7 +253,6 @@ export default function Forecast() {
                 }}
               />
               <Legend />
-              <Legend />
               <Line 
                 type="monotone" 
                 dataKey="planned" 

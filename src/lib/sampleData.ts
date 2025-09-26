@@ -165,7 +165,7 @@ export const nrrWaterfallData: ChartData[] = [
   { name: "Expansions", value: 2100000, category: "positive" },
   { name: "Contractions", value: -650000, category: "negative" },
   { name: "Churn", value: -890000, category: "negative" },
-  { name: "Ending ARR", value: 14060000, category: "base" }
+  { name: "Ending ARR", value: 13000000, category: "base" }
 ];
 
 export const productBreadthData: ChartData[] = [

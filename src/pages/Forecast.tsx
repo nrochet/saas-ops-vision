@@ -230,7 +230,10 @@ export default function Forecast() {
                 tickFormatter={(value) => `$${(value / 1000000).toFixed(1)}M`}
               />
               <Tooltip 
-                formatter={(value: number) => [`$${(value / 1000000).toFixed(1)}M`, '']}
+                formatter={(value: number, name: string) => [
+                  `$${(value / 1000000).toFixed(1)}M`, 
+                  name === 'planned' ? 'Planned' : 'Actual'
+                ]}
                 labelStyle={{ color: 'hsl(var(--foreground))' }}
                 contentStyle={{ 
                   backgroundColor: 'hsl(var(--card))',
@@ -238,6 +241,7 @@ export default function Forecast() {
                   borderRadius: '6px'
                 }}
               />
+              <Legend />
               <Line 
                 type="monotone" 
                 dataKey="planned" 

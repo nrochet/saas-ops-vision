@@ -6,7 +6,7 @@ export const sampleAccounts: Account[] = [
     name: "TechCorp Solutions",
     logo: "TC",
     arr: 450000,
-    renewalDate: "Renew:2024-12-15",
+    renewalDate: "Renew:202x-12-15",
     riskLevel: "safe",
     nrr: 115,
     productsActive: 3,

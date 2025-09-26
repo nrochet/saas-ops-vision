@@ -32,6 +32,12 @@ export function RiskBoard() {
     }
   };
 
+  const displayRenewalDate = (date: string) => {
+    // Extract date if it has prefix, otherwise use as-is
+    const cleanDate = date.startsWith('Renew:') ? date.substring(6) : date;
+    return `Renew: ${new Date(cleanDate).toLocaleDateString()}`;
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {Object.entries(groupedAccounts).map(([risk, accounts]) => (
@@ -82,7 +88,7 @@ export function RiskBoard() {
                     <div className="flex items-center justify-between text-xs">
                       <div className="flex items-center gap-1 text-muted-foreground">
                         <Calendar className="h-3 w-3" />
-                        {new Date(account.renewalDate).toLocaleDateString()}
+                        {displayRenewalDate(account.renewalDate)}
                       </div>
                       {account.riskLevel === 'at-risk' && (
                         <div className="flex items-center gap-1 text-danger">

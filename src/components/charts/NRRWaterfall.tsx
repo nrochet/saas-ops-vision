@@ -30,7 +30,7 @@ export function NRRWaterfall({ data }: NRRWaterfallProps) {
         <CardTitle className="flex items-center gap-2">
           NRR Waterfall Analysis
           <span className="text-sm font-normal bg-success-bg text-success px-2 py-1 rounded">
-            112% NRR
+            104% NRR
           </span>
         </CardTitle>
         <CardDescription>

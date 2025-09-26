@@ -245,8 +245,8 @@ export default function Forecast() {
               />
               <Tooltip 
                 formatter={(value: number, name: string) => [
-                  `${(value / 1000000).toFixed(1)}M`, 
-                  name === 'planned' ? 'Planned' : 'Actual'
+                  `$${(value / 1000000).toFixed(1)}M`, 
+                  name
                 ]}
                 labelStyle={{ color: 'hsl(var(--foreground))' }}
                 contentStyle={{ 

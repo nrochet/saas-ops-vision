@@ -57,6 +57,61 @@ export default function AMPerformance() {
 
       {viewMode === 'manager' ? (
         <div className="space-y-6">
+          {/* Manager KPIs */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <TrendingUp className="h-4 w-4" />
+                  Team NRR
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">108%</div>
+                <p className="text-sm text-muted-foreground">+3% vs last quarter</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <TrendingUp className="h-4 w-4 text-destructive" />
+                  Churn $
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-destructive">$420K</div>
+                <p className="text-sm text-muted-foreground">-15% vs last quarter</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <TrendingUp className="h-4 w-4 text-success" />
+                  Expansion $
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-success">$1.2M</div>
+                <p className="text-sm text-muted-foreground">+18% vs last quarter</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Award className="h-4 w-4" />
+                  Product Breadth Uplift
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">+0.4</div>
+                <p className="text-sm text-muted-foreground">Products per customer</p>
+              </CardContent>
+            </Card>
+          </div>
+
           {/* Team Book of Business */}
           <Card>
             <CardHeader>

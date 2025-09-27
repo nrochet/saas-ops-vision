@@ -20,7 +20,7 @@ export function DashboardHeader() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <h2 className="text-2xl font-bold text-foreground">Account Operations</h2>
-          <Badge variant="secondary" className="bg-success-bg text-success">
+          <Badge variant="secondary" className="bg-success-bg text-success whitespace-nowrap">
             Q4 2024 • 104% NRR
           </Badge>
         </div>

@@ -18,7 +18,7 @@ export function DashboardHeader() {
   return (
     <header className="bg-dashboard-header border-b border-border px-6 py-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
+        <div className="flex items-baseline gap-3">
           <h2 className="text-2xl font-bold text-foreground">Account Operations</h2>
           <Badge variant="secondary" className="bg-success-bg text-success whitespace-nowrap">
             Q4 2024 • 104% NRR

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RiskBoard } from "@/components/RiskBoard";
 import { RenewalCalendar } from "@/components/charts/RenewalCalendar";
 import { CohortChart } from "@/components/charts/CohortChart";
+import { FunnelChart } from "@/components/charts/FunnelChart";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cohortData } from "@/lib/sampleData";
@@ -38,9 +39,12 @@ export default function RenewalsRetention() {
       </div>
 
       {viewMode === 'manager' ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <RenewalCalendar />
-          <CohortChart data={cohortData} />
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <RenewalCalendar />
+            <CohortChart data={cohortData} />
+          </div>
+          <FunnelChart />
         </div>
       ) : (
         <div className="space-y-6">

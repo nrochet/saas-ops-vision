@@ -4,6 +4,7 @@ import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { DashboardHeader } from "@/components/DashboardHeader";
 import { AccountDrawer } from "@/components/AccountDrawer";
 import { Account } from "@/lib/types";
+import { AccountContext } from "@/contexts/AccountContext";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -31,25 +32,27 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
   };
 
   return (
-    <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-dashboard-bg">
-        <DashboardSidebar />
-        
-        <div className="flex-1 flex flex-col">
-          <DashboardHeader />
+    <AccountContext.Provider value={{ handleAccountSelect }}>
+      <SidebarProvider>
+        <div className="min-h-screen flex w-full bg-dashboard-bg">
+          <DashboardSidebar />
           
-          <main className="flex-1 p-6">
-            {children}
-          </main>
-        </div>
+          <div className="flex-1 flex flex-col">
+            <DashboardHeader />
+            
+            <main className="flex-1 p-6">
+              {children}
+            </main>
+          </div>
 
-        <AccountDrawer
-          account={selectedAccount}
-          open={isAccountDrawerOpen}
-          onOpenChange={setIsAccountDrawerOpen}
-          onForecastCategoryChange={handleForecastCategoryChange}
-        />
-      </div>
-    </SidebarProvider>
+          <AccountDrawer
+            account={selectedAccount}
+            open={isAccountDrawerOpen}
+            onOpenChange={setIsAccountDrawerOpen}
+            onForecastCategoryChange={handleForecastCategoryChange}
+          />
+        </div>
+      </SidebarProvider>
+    </AccountContext.Provider>
   );
 }

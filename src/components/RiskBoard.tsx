@@ -4,9 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Building2, Calendar, TrendingDown } from "lucide-react";
 import { sampleAccounts } from "@/lib/sampleData";
+import { useAccountContext } from "@/contexts/AccountContext";
 
 export function RiskBoard() {
   const [selectedAccount, setSelectedAccount] = useState<string | null>(null);
+  const { handleAccountSelect } = useAccountContext();
 
   const groupedAccounts = {
     safe: sampleAccounts.filter(acc => acc.riskLevel === 'safe'),
@@ -98,7 +100,15 @@ export function RiskBoard() {
                       )}
                     </div>
 
-                    <Button size="sm" variant="outline" className="w-full text-xs">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="w-full text-xs"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleAccountSelect(account);
+                      }}
+                    >
                       View Details
                     </Button>
                   </div>

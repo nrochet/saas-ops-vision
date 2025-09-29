@@ -256,7 +256,7 @@ export function FunnelChart() {
             <h4 className="font-medium text-sm mb-2">Key Insights</h4>
             <ul className="text-sm text-muted-foreground space-y-1">
               <li>• Strong {retentionRate}% logo retention rate exceeds industry benchmark</li>
-              <li>• {funnelData.churnedLogos} churned logos represent ${((funnelData.churnedLogos * 170000) / 1000000).toFixed(1)}M ARR at risk</li>
+              <li>• {funnelData.churnedLogos} churned logos represent ${((funnelData.churnedLogos * 180000) / 1000000).toFixed(1)}M ARR at risk</li>
               <li>• Click on funnel segments to view detailed account lists</li>
             </ul>
           </div>

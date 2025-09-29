@@ -14,18 +14,21 @@ import {
   TrendingUp, 
   AlertTriangle,
   Users,
-  Package
+  Package,
+  Target
 } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface AccountDrawerProps {
   account: Account | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  onForecastCategoryChange?: (accountId: string, category: 'commit' | 'best' | 'upside') => void;
 }
 
-export function AccountDrawer({ account, open, onOpenChange }: AccountDrawerProps) {
+export function AccountDrawer({ account, open, onOpenChange, onForecastCategoryChange }: AccountDrawerProps) {
   if (!account) return null;
 
   const getRiskBadgeVariant = (risk: string) => {
@@ -99,6 +102,31 @@ export function AccountDrawer({ account, open, onOpenChange }: AccountDrawerProp
                 {account.riskLevel.toUpperCase().replace('-', ' ')}
               </Badge>
             </div>
+          </div>
+
+          <Separator />
+
+          {/* Forecast Category */}
+          <div>
+            <h3 className="font-semibold mb-3 flex items-center gap-2">
+              <Target className="h-4 w-4" />
+              Forecast Category
+            </h3>
+            <Select 
+              value={account.forecastCategory} 
+              onValueChange={(value: 'commit' | 'best' | 'upside') => 
+                onForecastCategoryChange?.(account.id, value)
+              }
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="commit">Commit</SelectItem>
+                <SelectItem value="best">Best Case</SelectItem>
+                <SelectItem value="upside">Upside</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <Separator />

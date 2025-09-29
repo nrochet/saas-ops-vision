@@ -18,6 +18,18 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     setIsAccountDrawerOpen(true);
   };
 
+  const handleForecastCategoryChange = (accountId: string, category: 'commit' | 'best' | 'upside') => {
+    // Update the selected account's forecast category
+    if (selectedAccount && selectedAccount.id === accountId) {
+      setSelectedAccount({
+        ...selectedAccount,
+        forecastCategory: category
+      });
+    }
+    // In a real app, you'd also want to persist this change to your backend
+    console.log(`Updated account ${accountId} forecast category to ${category}`);
+  };
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-dashboard-bg">
@@ -35,6 +47,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
           account={selectedAccount}
           open={isAccountDrawerOpen}
           onOpenChange={setIsAccountDrawerOpen}
+          onForecastCategoryChange={handleForecastCategoryChange}
         />
       </div>
     </SidebarProvider>
